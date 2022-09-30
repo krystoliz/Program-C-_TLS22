@@ -1,18 +1,22 @@
+//Program for converting height in feet and inches into centimeters
 #include <iostream>
+
 using namespace std;
-int main() {
-    double x, y;
-    double inchConst, footConst, height_in_cm;
-    inchConst = 2.54;
-    footConst = 30.48;
-    
-    cout << "feet = ";
-    cin >> x;
-    cout << "inch = ";
-    cin >> y;
-    
-    height_in_cm = x * footConst + y * inchConst;
-    cout << height_in_cm << " cm" << endl;
-    
+
+int main()
+{
+   double x, y;
+   double inchConst, footConst, height_in_cm;
+   inchConst = 2.54; //set the constants' value
+   footConst = 30.58;
+   
+   cout << "feet = ";
+   cin >> x; //prompt for .... feet
+   cout << "inch = ";
+   cin >> y; //prompt for .... inch
+   
+   height_in_cm = x * footConst + y * inchConst; //calculate
+   cout << height_in_cm << " cm" << endl;
+   
     return 0;
 }
