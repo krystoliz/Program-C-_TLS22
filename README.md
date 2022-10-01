@@ -1,4 +1,4 @@
 # TLS22_Program C++
-Tugas Pemrograman TLS
-Nama Lengkap  : Jhon Samuel Kudadiri
+Tugas Pemrograman TLS <br \>
+Nama Lengkap  : Jhon Samuel Kudadiri <br \>
 Nama Kelompok : Gauss
