@@ -1,0 +1,103 @@
+PERCOBAAN 1 : ARRAY STATIS SATU DIMENSI
+Berikut ini adalah sebuah program dalam bahasa C++. Salinlah program berikut menggunakan text
+editor dan simpan dengan nama larik.cpp. Kemudian compile dan run (eksekusi) program tersebut.
+
+#include <iostream>
+using namespace std;
+int main()
+{
+int larik[5] = {10, 20, 30, 40, 50};
+int i;
+cout<<"Elemen larik\t\t"<<"Nilai elemen larik\n";
+for(i=0; i<5; i++)
+{
+cout<<"larik["<<i<<"]\t\t\t"<<larik[i]<<"\n";
+}
+return 0;
+}
+
+----------------------------------------------------------------------
+1. Apakah keluaran dari program di atas tersebut? Jelaskan ?
+
+Elemen larik    Nilai Elemen Larik
+larik[0]      10
+larik[1]      20
+larik[2]      30
+larik[3]      40
+larik[4]      50
+----------------------------------------------------------------------
+
+Perhatikan program di bawah ini, kemudian salin (ketik ulang, jangan copy-paste), compile, dan
+eksekusi program tersebut.
+
+#include <iostream>
+using namespace std;
+int main () {
+int A[5], i, j; // deklarasi array A bertipe integer dan memiliki ukuran 5
+(memiliki 5 elemen)
+// initialisasi indeks dari array A dari indeks 0 nilai array dan indeks
+selanjutnya bertambahan dengan 1
+for ( int i = 0; i < 5; i++ ) {
+// mengeset elemen dari array A[0] bernilai 100 dan nilai array
+selanjutnya bertambahan dengan 1
+A[i] = i + 100;
+}
+cout << "Indeks\t\t"<< "Nilai Elemen\t" << "Alamat"<<endl;
+// menampilkan indeks dan nilai dari tiap elemen array A serta lokasi
+alamat memorinya
+for ( int j = 0; j < 5; j++ ) {
+cout << j <<"\t\t\t"<<A[ j ]<<"\t\t\t\t"<<&A[j] << endl;
+}
+}
+
+-------------------------------------------------------------------------------------------
+1. Berapa indeks array A yang paling besar ? 104
+2. Berapa ukuran tipe data dari elemen array A ? 20
+3. Berapa bertambahan ukuran memori yang menyimpan tiap nilai elemen dari array A ? 4
+--------------------------------------------------------------------------------------------
+
+#include <iostream>
+using namespace std;
+typedef struct Person
+{
+string name;
+int NIM;
+int age;
+}Student;
+
+int main()
+{
+int i,n;
+cout<< "Masukkan jumlah data mahasiswa :";
+cin>> n;
+cout<<endl;
+Student s_array[n];
+cout<<"Masukkan Data Mahasiswa \n";
+for(i=0;i<n;i++){
+cout<< "Masukkan Nama mahasiswa :\n";
+
+cin>>s_array[i].name;
+cout<< "Masukkan NIM mahasiswa :\n";
+cin>>s_array[i].NIM;
+cout<< "Masukkan Umur mahasiswa :\n";
+cin>>s_array[i].age;
+}
+cout<<"\nDaftar Mahasiswa\n";
+cout<<"\nNo.\t\tNama\t\tNIM\t\tUmur\n";
+for(i=0;i<n;i++){
+cout<<i+1<<"\t\t"<<s_array[i].name <<"\t\t\t"<<s_array[i].NIM
+
+<<"\t\t"<<s_array[i].age <<endl;
+}
+}
+
+---------------------------------------------------------------------------------------------------
+1. Apakah keluaran dari program di atas ?
+
+2. Apakah ada kesalahan ? jika ada silahkan diperbaiki sapai menghasilkan keluaran yang sesuai
+---------------------------------------------------------------------------------------------------
+
+
+
+
+
