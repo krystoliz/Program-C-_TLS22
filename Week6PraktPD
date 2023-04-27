@@ -93,11 +93,131 @@ cout<<i+1<<"\t\t"<<s_array[i].name <<"\t\t\t"<<s_array[i].NIM
 
 ---------------------------------------------------------------------------------------------------
 1. Apakah keluaran dari program di atas ?
+Masukkan jumlah data mahasiswa :1
+Masukkan Data Mahasiswa:
+Masukkan Nama mahasiswa :
+Jhon
+Masukkan NIM mahasiswa  :
+123
+Masukkan Umur mahasiswa :
+19
+
+Daftar Mahasiswa
+
+No.   Name    NIM   Umur  
+1     Jhon    123   19
 
 2. Apakah ada kesalahan ? jika ada silahkan diperbaiki sapai menghasilkan keluaran yang sesuai
+seharusnya 
+cout<<i+1<<"\t\t"<<s_array[i].name <<"\t\t\t"<<s_array[i].NIM <<"\t\t"<<s_array[i].age <<endl;
+menjadi
+cout<<i+1<<"\t\t"<<s_array[i].name <<"\t\t"<<s_array[i].NIM <<"\t\t"<<s_array[i].age <<endl;
 ---------------------------------------------------------------------------------------------------
 
+Pada percobaan ini, salinlah program berikut menggunakan text editor dan simpan dengan nama
+tertentu. Kemudian compile dan eksekusi program tersebut.
+#include <iostream>
+using namespace std;
+int main () {
+int A[5][5], i, j, k,l; // deklarasi array A bertipe integer dan
+memiliki ukuran baris 5 dan kolom 5
+// inisialisasi indeks dari array Adimulai dari indeks [0][0]
+for ( int i = 0; i < 5; i++ )
 
+{
+for ( int j = 0; j < 5; j++ )
+
+// set nilai elemen dimulai dari array A[0]0], baris ke 0
+akan diset ke nilai 100 selanjutnya kenaikan baris akan bertambah 1
+A[i][j] = i+100;
+
+}
+
+cout << "Indeks\t\t"<< "Nilai Elemen\t" << "Alamat"<<endl;
+// menampilkan indeks dan nilai dari tiap elemen array A serta lokasi
+alamat memorinya
+for ( int k = 0; k < 5; k++ )
+{
+for ( int l = 0; l < 5; l++ )
+cout << "["<<k<<"]"<<"["<<l<<"]"<<"\t\t"<<A[k][l]<<"\t\t\t\t"<<&A[k][l]
+<< endl;
+}
+}
+
+1. Apakah keluaran dari program di atas ?
+Indeks        Nilai Elemen    Alamat
+[0][0]        100             0x7ffcc02fa870
+.
+.
+.
+[4][4]        104             0x7ffcc02fa8d0
+2. Mengapa diperlukan dua buah perintah “for” untuk iterasinya ?
+for diperlukan untuk iterasi agar jumlah iterasi yang dilakukan sesuai dengan yang kita inginkan dan jumlahnya sudah ditentukan
+3. Modifikasi program di atas dengan mengganti perintah iterasi “for” dengan perintah “while”
+#include <iostream>
+using namespace std;
+int main () {
+int A[5][5], i, j, k,l; // deklarasi array A bertipe integer dan memiliki ukuran baris 5 dan kolom 5
+// inisialisasi indeks dari array Adimulai dari indeks [0][0]
+i,j,k,l = 0;
+while(i<5){
+    j=0;
+    while (j<5){
+        A[i][j]=100+i;
+        j++;
+    }
+    i++;
+    
+}
+
+cout << "Indeks\t\t"<< "Nilai Elemen\t" << "Alamat"<<endl;
+// menampilkan indeks dan nilai dari tiap elemen array A serta lokasi alamat memorinya
+
+while(k<5){
+    l=0;
+    while(l<5){
+     cout << "["<<k<<"]"<<"["<<l<<"]"<<"\t\t"<<A[k][l]<<"\t\t\t\t"<<&A[k][l] << endl;   
+     l++;
+    }
+    k++;
+    
+}
+
+
+}
+4. Modifikasi program di atas dengan mengganti perintah iterasi “for” dengan perintah “ do while”
+#include <iostream>
+using namespace std;
+int main () {
+int A[5][5], i, j, k,l; // deklarasi array A bertipe integer dan memiliki ukuran baris 5 dan kolom 5
+// inisialisasi indeks dari array Adimulai dari indeks [0][0]
+i,j,k,l = 0;
+
+
+do{
+    j=0;
+    do{
+        A[i][j]=100+i;
+        j++;
+    }while(j<5);
+    i++;
+}while(i<5);
+
+cout << "Indeks\t\t"<< "Nilai Elemen\t" << "Alamat"<<endl;
+// menampilkan indeks dan nilai dari tiap elemen array A serta lokasi alamat memorinya
+
+
+
+do{
+    l=0;
+    do{
+        cout << "["<<k<<"]"<<"["<<l<<"]"<<"\t\t"<<A[k][l]<<"\t\t"<<&A[k][l] << endl;   
+     l++;
+    }while(l<5);
+    k++;
+}while(k<5);
+
+}
 
 
 
