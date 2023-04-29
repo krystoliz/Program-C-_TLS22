@@ -55,7 +55,7 @@ cout << j <<"\t\t\t"<<A[ j ]<<"\t\t\t\t"<<&A[j] << endl;
 2. Berapa ukuran tipe data dari elemen array A ? 20
 3. Berapa bertambahan ukuran memori yang menyimpan tiap nilai elemen dari array A ? 4
 --------------------------------------------------------------------------------------------
-
+Practice 4
 #include <iostream>
 using namespace std;
 typedef struct Person
@@ -113,7 +113,7 @@ cout<<i+1<<"\t\t"<<s_array[i].name <<"\t\t\t"<<s_array[i].NIM <<"\t\t"<<s_array[
 menjadi
 cout<<i+1<<"\t\t"<<s_array[i].name <<"\t\t"<<s_array[i].NIM <<"\t\t"<<s_array[i].age <<endl;
 ---------------------------------------------------------------------------------------------------
-
+Practice 4
 Pada percobaan ini, salinlah program berikut menggunakan text editor dan simpan dengan nama
 tertentu. Kemudian compile dan eksekusi program tersebut.
 #include <iostream>
@@ -219,5 +219,146 @@ do{
 
 }
 
+---------------------------------------------------------------------------------------------------
+Practice 5
+Salin program di bawah ini, compile, dan eksekusi !
+#include<iostream>
+using namespace std;
+int main( )
+{
+int s[3][3];
+int i, j;
+cout<<"\nMasukkan sks Mahasiswa untuk 3 Angkatan yang berbeda \n";
+for(i=0;i<3;i++)
 
+
+{
+cout<<"\n Angkatan 202"<<i<<"\t";
+for(j=0;j<3;j++)
+{
+cout<<"\nsks Mahasiswa ["<<i<<"]["<<j<<"]= ";
+cin>>s[i][j];
+}
+}
+cout<<endl;
+cout<<"\nTampilkan data sks Mahasiswa 3 Angkatan\n";
+cout<<"\n Angkatan\t\t"<<"sks";
+for(i=0;i<3;i++)
+{
+cout<<"\n 202"<<i<<"\t";
+for(j=0;j<3;j++)
+{
+cout<<"\t"<<s[i][j];
+}
+cout<<endl;
+}
+}
+---------------------------------------------------------------------------------------------------
+1. Apakah keluaran dari program di atas ? Jelaskan
+Keluaran dari program adalah menunjukkan sks dari 3 mahasiswa angkatan 2020, 2021, dan 2022.
+Angkatan        sks
+2020        21  23  20
+2021        23  24  21
+2022        20  19  24
+
+2. Modifikasi program di atas sehingga dapat mengeluarkan data sks mahasiswa untuk 6 angkatan
+dimulai dari angkatan 1990 dan tiap angkatan ada 4 data sks mahasiswa.
+
+#include<iostream>
+using namespace std;
+int main( )
+{
+int s[6][4];
+int i, j;
+cout<<"\nMasukkan sks Mahasiswa untuk 3 Angkatan yang berbeda \n";
+for(i=0;i<6;i++)
+
+{
+cout<<"\n Angkatan 199"<<i<<"\t";
+for(j=0;j<4;j++)
+{
+cout<<"\nsks Mahasiswa ["<<i<<"]["<<j<<"]= ";
+cin>>s[i][j];
+}
+}
+cout<<endl;
+cout<<"\nTampilkan data sks Mahasiswa 3 Angkatan\n";
+cout<<"\n Angkatan\t\t"<<"sks";
+for(i=0;i<6;i++)
+{
+cout<<"\n 202"<<i<<"\t";
+for(j=0;j<4;j++)
+{
+cout<<"\t"<<s[i][j];
+}
+cout<<endl;
+}
+}
+
+3. Gantilah perintah “for” dengan “while” untuk perintah pada poin kedua
+#include<iostream>
+using namespace std;
+int main( )
+{
+int s[6][4];
+int i, j;
+cout<<"\nMasukkan sks Mahasiswa untuk 3 Angkatan yang berbeda \n";
+
+while(i<6){
+    cout << "\nAngkatan 199"<<i<<"\t";
+    j=0;
+    while(j<4){
+        cout<<"\nsks Mahasiswa ["<<i<<"]["<<j<<"]= ";
+        cin>>s[i][j]; 
+        j++;
+    }
+    i++;
+}
+cout<<endl;
+cout<<"\nTampilkan data sks Mahasiswa 3 Angkatan\n";
+cout<<"\n Angkatan\t\t"<<"sks";
+
+i=0;
+j=0;
+while (i<6){
+    cout<<"\n 199"<<i<<"\t";
+    j=0;
+    while (j<4){
+        cout<<"\t"<<s[i][j];
+        j++;
+    }
+  i++;  
+}
+}
+
+-------------------------------------------------------------------------------------------------
+Praktek 6
+
+Program di bawah ini adalah program structure yang memanfaatkan pointer. Salin, compile, dan
+eksekusi program di berikut ini.
+#include <iostream>
+using namespace std;
+struct rectangular {
+int length;
+int width;
+};
+int main() {
+rectangular *ptr, r;
+int area;
+ptr = &r;
+cout << "Enter length: "<<endl;
+cin >> (*ptr).length;
+cout << "Enter width"<<endl;
+cin >> (*ptr).width;
+area = (*ptr).length * (*ptr).width;
+cout << "Displaying information Rectangular" << endl;
+cout << "Length = " << (*ptr).length <<" \tWidth " << (*ptr).width
+<<endl;
+cout << "Area = " << area<<endl;
+
+return 0;
+}
+
+1. Apakah keluaran dari program di atas ?
+2. Apa beda antara structure dinamis dan statis ?
 
