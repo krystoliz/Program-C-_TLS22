@@ -362,3 +362,440 @@ return 0;
 1. Apakah keluaran dari program di atas ?
 2. Apa beda antara structure dinamis dan statis ?
 
+------------------------------------------------------------------------------
+Program di bawah ini adalah program array dinamis yang memanfaatkan pointer. Salin, compile,
+dan eksekusi program di berikut ini.
+#include <iostream>
+using namespace std;
+int main() {
+int i,n;
+cout<<"Enter total number of elements:"<<"\n";
+cin>>n;
+int *a = new int(n);
+cout<<"Enter "<<n<<" elements"<<endl;
+for(i = 0;i<n;i++) {
+cin>>a[i];
+}
+cout<<"Entered elements are: ";
+for(i = 0;i<n;i++) {
+cout<<a[i]<<" ";
+}
+cout<<endl;
+delete (a);
+return 0;
+}
+
+1. Jelaskan apa keluaran dari program tersebut
+2. Apa perbedaan array dinamis dengan statis ?
+---------------------------------------------------------------------------------------------
+Program di bawah ini adalah program yang memanfaatkan pointer. Salin, compile, dan eksekusi
+program di berikut ini.
+#include <iostream>
+using namespace std;
+#define N 10
+// Dynamically allocate memory for 1D Array in C++
+int main()
+{
+// dynamically allocate memory of size `N`
+
+Modul Praktikum Pemrograman Dasar
+
+11
+
+int* A = new int[N];
+// assign values to the allocated memory
+for (int i = 0; i < N; i++) {
+A[i] = i + 1;
+}
+// print the 1D array
+for (int i = 0; i < N; i++) {
+std::cout << A[i] << " "; // or *(A + i)
+}
+// deallocate memory
+delete[] A;
+return 0;
+}
+}
+- Jelaskan keluaran program di atas ?
+- Apa bedanya dengan array statis ?
+----------------------------------------------------------------------------------------------
+1) Perhatikan program di bawah ini, kemudian salin (ketik ulang, jangan copy-paste), compile, dan
+eksekusi program tersebut. Jika terdapat syntax error atau error karena kesalahan dalam hal
+penggunaan tipe data, operator, ataupun kesalahan logika, perbaiki hingga dapat dikompilasi dan
+dijalankan sehingga menghasilkan luaran seperti yang diharapkan.
+#include <iostream>
+using namespace std;
+int main()
+{
+int arr[10];
+int i;
+int sum=0, avg=0;
+cout<<"Masukkan 10 Elemen Array bertipe integer";
+for(i=0; i<10; i++)
+{
+cin>>arr[i];
+sum = sum + arr[i];
+}
+cout<<"\nElemen Array adalah : \n";
+for(i=0; i<10; i++)
+{
+cout<<arr[i]<<" ";
+}
+cout<<"\n\nHasil penjumlahan dari semua elemen array adalah : "<<sum;
+avg = sum/10;
+cout<<"\nRerata elemen array adalah : "<<avg;
+return 0;
+}
+
+Modul Praktikum Pemrograman Dasar
+
+12
+2) Perhatikan program di bawah ini, kemudian salin (ketik ulang, jangan copy-paste), compile, dan
+eksekusi program tersebut. Jika terdapat syntax error atau error karena kesalahan dalam hal
+penggunaan tipe data, operator, ataupun kesalahan logika, perbaiki hingga dapat dikompilasi dan
+dijalankan sehingga menghasilkan luaran seperti yang diharapkan.
+#include <iostream>
+using namespace std;
+const int size=3;
+struct employee {
+string name;
+int emp_no;
+float salary;
+} ;
+int main () {
+emp[size];
+cout<<"Masukkan Data Pegawai"<<endl;
+for(i=0;i<size;i++) {
+cout<<" Pegawai Nomor "<<i+1<<endl;
+cout<<" Nama:"<<endl;
+cin>>emp[i].name;
+cout<<" Kode: "<<endl;
+cin>>emp[i].emp_no; //accessing members
+cout<<" Gaji:"<<endl;
+cin>>emp[i].salary;
+}
+cout<<"\n";
+cout<<"Data Pegawai\n";
+cout<<"No.\tNama\tKode\tGaji\n";
+for(i=0;i<size;i++) {
+cout<<i+1<<"\t"<<emp[i].name<<"\t"<<emp[i].emp_no<<"\t\t"<<emp[i].salary<
+<"\n";
+}
+}
+
+3) Apakah keluaran dari program di bawah ini, jelaskan!
+#include <iostream>
+using namespace std;
+typedef int* IntPtr;
+int main( )
+{
+IntPtr p;
+int a[10];
+int index;
+for (index = 0; index < 10; index++)
+a[index] = index;
+p = a;
+
+Modul Praktikum Pemrograman Dasar
+
+13
+
+for (index = 0; index < 10; index++)
+cout << p[index] << " ";
+cout << endl;
+for (index = 0; index < 10; index++)
+p[index] = p[index] + 1;
+for (index = 0; index < 10; index++)
+cout << a[index] << " ";
+cout << endl;
+return 0;
+}
+
+------------------------------------------------------------------------------------
+1. Berikut adalah program untuk apa ? Jelaskan. Modifikasilah untuk masukan atau input array yang bisa
+diisikan oleh user secara interaktif..
+
+#include<iostream>
+using namespace std;
+int main ()
+{
+int myarray[5] = {12,4,3,1,15};
+cout<<"\nInput list is \n";
+for(int i=0;i<5;i++)
+{
+cout <<myarray[i]<<"\t";
+}
+for(int k=1; k<5; k++)
+{
+int temp = myarray[k];
+int j= k-1;
+while(j>=0 && temp <= myarray[j])
+{
+myarray[j+1] = myarray[j];
+j = j-1;
+}
+myarray[j+1] = temp;
+}
+cout<<"\nOutput list is \n";
+for(int i=0;i<5;i++)
+{
+cout <<myarray[i]<<"\t";
+}
+}
+
+2. Berikut adalah program untuk mengisi dan menampilkan array structure data student, juga
+menampilkan data umur yang tertua. Jika akan ditambahkan untuk menampilkan nama student yang
+memiliki umur tertua tersebut, bagaimana caranya ? Modifikasi program tersebut supaya dapat
+menampilkan hal tersebut dengan benar.
+
+Modul Praktikum Pemrograman Dasar
+
+14
+
+#include<iostream>
+using namespace std;
+// struct declaration outside main()
+struct
+{
+int roll,age;
+string name;
+}vr[4];
+int main()
+{
+int i,j,k, max;
+for(i=0; i<4; i++)
+{
+cout<<"Enter "<<i+1<<" Student Record\n";
+cout<<"Enter Roll no: "<<endl;
+cin>>vr[i].roll;
+cout<<"Enter age : "<<endl;
+cin>>vr[i].age;
+cout<<"Enter Name : "<<endl;
+cin>>vr[i].name;
+}
+cout<<endl;
+for(j=0; j<4; j++)
+{
+cout<<"\nDisplay "<<j+1<<" Student Record";
+cout<<"\nRoll no.: "<<vr[j].roll;
+cout<<"\nAge : "<<vr[j].age;
+cout<<"\nName : "<<vr[j].name<<endl;
+}
+max = vr[0].age;
+for (k = 1; k < 4; k++)
+{
+if (max<vr[k].age)
+max=vr[k].age;
+}
+cout << "\nThe oldest age's student is : " <<max;
+return 0;
+}
+
+3. Berikut adalah program penghitung jumlah dan rerata dari 3 buah masukan bilangan bertipe double.
+Program mengimplementasikan suatu program modular yang terdiri dari 2 fungsi user definition
+function, yaitu fungsi add dan avg. Modifikasilah program tersebut sehingga masukkannya menjadi
+array bertipe double.
+
+#include<iostream>
+using namespace std;
+// declare functions
+double add(double num1, double num2, double num3);
+
+Modul Praktikum Pemrograman Dasar
+
+15
+
+double avg(double sum, int n);
+// main function
+int main()
+{
+// declare variables
+double num1, num2, num3;
+double sum, average;
+// take input from end-user
+cout << "Enter three Numbers :: ";
+cin >> num1 >> num2 >> num3;
+// calculate sum value
+sum = add(num1 , num2, num3);
+// calculate average value
+average = avg(sum, 3);
+// display result
+cout << "Sum = " << sum << endl;
+cout << "Average = " << average << endl;
+return 0;
+}
+// function to add three numbers
+double add(double num1, double num2, double num3)
+{
+return num1+num2+num3;
+}
+// function to calculate average of n number
+double avg(double sum, int n)
+{
+return sum / n;
+}
+
+4. Berikut adalah program penghitung jumlah dan rerata dari 3 buah masukan bilangan bertipe double.
+Program mengimplementasikan suatu program modular yang terdiri dari 2 user defined function,
+yaitu fungsi add dan avg. Modifikasilah program tersebut sehingga masukkannya menjadi array
+bertipe double.
+
+#include<iostream>
+using namespace std;
+// declare functions
+double add(double num1, double num2, double num3);
+double avg(double sum, int n);
+// main function
+int main()
+{
+
+Modul Praktikum Pemrograman Dasar
+
+16
+
+// declare variables
+double num1, num2, num3;
+double sum, average;
+// take input from end-user
+cout << "Enter three Numbers :: ";
+cin >> num1 >> num2 >> num3;
+// calculate sum value
+sum = add(num1 , num2, num3);
+// calculate average value
+average = avg(sum, 3);
+// display result
+cout << "Sum = " << sum << endl;
+cout << "Average = " << average << endl;
+return 0;
+}
+// function to add three numbers
+double add(double num1, double num2, double num3)
+{
+return num1+num2+num3;
+}
+// function to calculate average of n number
+double avg(double sum, int n)
+{
+return sum / n;
+}
+
+5. Buatlah program dengan menggunakan prinsip array dua dimensi, untuk menampilkan matriks
+diagonal dan matriks segitiga bawah yang isinya huruf “X” apa ?
+
+
+-----------------------------------------------------------------------------------------------
+1. Jelaskan maksud dan keluaran program di bawah. Bagaimana cara menyempurnakan program
+supaya ketika masukan pada penggalan program ini tidak ditemukan, maka tidak terjadi error ?
+cout<<"Accessing element at index. Enter the index : "; cin>>l;
+Modifikasilah menjadi program modular dengan 3 user defined function. Masing-masing fungsi
+digunakan untuk memecah tugas yang ada diprogram aslinya. Tetap gunakan tipe data array seperti
+pada program aslinya.
+
+#include<iostream>
+using namespace std;
+int main()
+{
+
+Modul Praktikum Pemrograman Dasar
+
+17
+
+int n,k,l,ans=-1;
+cout<<"Enter size of array"<<endl;
+cin>>n;
+int arr[n];
+cout<<"Enter elements of array"<<endl;
+for(int i=0;i<n;i++)
+{
+cin>>arr[i];
+}
+cout<<"Accessing element at index. Enter the index : ";
+cin>>l;
+cout<<endl;
+cout<<"\nElement present at index "<<l<<" is "<<arr[l]<<endl;
+cout<<"Enter element to be searched : "<<endl;
+cin>>k;
+for(int i=0;i<n;i++)
+{
+if(arr[i]==k)
+{
+ans=i;
+break;
+}
+}
+if(ans!=-1)
+cout<<"The element "<<k<<" is present at index "<<ans;
+else
+cout<<"The element "<<k<<" is not there in the array";
+return 0;
+}
+
+2. Modifikasi program di bawah menjadi program modular yang memiliki 2 3 user defined function.
+Fungsi yang pertama untum meng-inputkan array satu dimensi, sedangkan fungsi yang kedua untuk
+mengeluarkan output seperti pada program aslinya.
+#include<iostream>
+using namespace std;
+int main ()
+{
+int myarray[5] = {12,4,3,1,15};
+cout<<"\nInput list is \n";
+for(int i=0;i<5;i++)
+{
+cout <<myarray[i]<<"\t";
+}
+for(int k=1; k<5; k++)
+{
+int temp = myarray[k];
+int j= k-1;
+while(j>=0 && temp <= myarray[j])
+{
+myarray[j+1] = myarray[j];
+j = j-1;
+}
+myarray[j+1] = temp;
+}
+cout<<"\nOutput list is \n";
+
+Modul Praktikum Pemrograman Dasar
+
+18
+
+for(int i=0;i<5;i++)
+{
+cout <<myarray[i]<<"\t";
+}
+}
+
+3. Buatlah program untuk menampilkan elemen suatu matriks (array dua dimensi bertipe integer) dan
+juga untuk mencari dan menampilkan nilai terkecil dari matriks tersebut. Tampilkan juga nilai terkecil
+tersebut terletak pada indeks berapa ?
+4. Apakah keluaran program di bawah ini ? Program ini menggunakan jenis tipe data apa ? Bagaimana
+cara menambah beberapa data di program ini ?
+
+#include <iostream>#include <iostream>
+using namespace std;
+struct Employee
+{
+string Name;
+int Age;
+};
+int main()
+{
+Employee* DynArray;
+DynArray = new (nothrow) Employee[3];
+DynArray[0].Name = "Agus";
+DynArray[0].Age = 33;
+DynArray[1].Name = "Sigit";
+DynArray[1].Age = 26;
+DynArray[2].Name = "Sulis";
+DynArray[2].Age = 52;
+cout << "Displaying the Array Content" << endl;
+for (int i = 0; i < 3; i++)
+{
+cout << "Name: " << DynArray[i].Name <<
+"\tAge: " << DynArray[i].Age << endl;
+}
+delete[] DynArray;
+return 0;
+}
+----------------------------------------------------------------------------------------
