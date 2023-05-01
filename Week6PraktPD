@@ -360,7 +360,29 @@ return 0;
 }
 
 1. Apakah keluaran dari program di atas ?
+Enter length :
+2
+Enter width :
+2
+Displaying information Rectangular
+Length = 2  Width = 2
+Area = 4
+
 2. Apa beda antara structure dinamis dan statis ?
+Struct Statis:
+
+Deklarasi struct statis dilakukan pada saat kompilasi dan memerlukan alokasi memori tetap yang ditentukan saat kompilasi.
+Ukuran dari struct statis tetap selama program berjalan.
+Setiap objek struct statis harus diinisialisasi saat deklarasi.
+Objek struct statis dapat disimpan di dalam stack atau di dalam data segment.
+Struct statis tidak bisa diubah ukurannya pada saat runtime.
+Struct Dinamis:
+
+Deklarasi struct dinamis dilakukan pada saat runtime dengan menggunakan operator new atau malloc untuk mengalokasikan memori.
+Ukuran dari struct dinamis dapat berubah pada saat runtime dengan mengalokasikan atau membebaskan memori yang digunakan.
+Inisialisasi struct dinamis dapat dilakukan setelah alokasi memori.
+Objek struct dinamis disimpan di dalam heap.
+Struct dinamis lebih fleksibel dan dapat diubah ukurannya selama program berjalan
 
 ------------------------------------------------------------------------------
 Program di bawah ini adalah program array dinamis yang memanfaatkan pointer. Salin, compile,
@@ -386,7 +408,33 @@ return 0;
 }
 
 1. Jelaskan apa keluaran dari program tersebut
+Enter the total number of elements:
+3
+Enter 3 elements 
+2
+3
+5
+Entered elements are: 2 3 5
+
 2. Apa perbedaan array dinamis dengan statis ?
+
+Array Statis:
+
+Ukuran array dideklarasikan pada saat kompilasi dan tetap konstan selama program berjalan.
+Jumlah elemen pada array statis harus diketahui saat kompilasi.
+Memiliki alokasi memori statis yang dilakukan pada saat kompilasi, sehingga tidak memerlukan alokasi memori pada saat runtime.
+Tidak memerlukan penggunaan operator new atau delete untuk alokasi dan dealokasi memori.
+Tidak dapat diubah ukurannya pada saat runtime.
+Array Dinamis:
+
+Ukuran array dapat diubah pada saat runtime.
+Jumlah elemen pada array dinamis dapat ditentukan saat runtime.
+Memiliki alokasi memori dinamis yang dilakukan pada saat runtime, sehingga memerlukan penggunaan operator new atau malloc untuk alokasi memori dan operator delete atau free untuk dealokasi memori.
+Dapat mengakibatkan fragmentasi memori jika alokasi dan dealokasi memori dilakukan secara tidak efisien.
+Dapat menyebabkan masalah seperti memory leak atau dangling pointer jika tidak dikelola dengan baik.
+Memiliki fleksibilitas dalam penggunaan ukuran array dan alokasi memori yang dibutuhkan selama program berjalan.
+
+
 ---------------------------------------------------------------------------------------------
 Program di bawah ini adalah program yang memanfaatkan pointer. Salin, compile, dan eksekusi
 program di berikut ini.
@@ -398,9 +446,7 @@ int main()
 {
 // dynamically allocate memory of size `N`
 
-Modul Praktikum Pemrograman Dasar
 
-11
 
 int* A = new int[N];
 // assign values to the allocated memory
@@ -417,7 +463,9 @@ return 0;
 }
 }
 - Jelaskan keluaran program di atas ?
+1 2 3 4 5 6 7 8 9 10
 - Apa bedanya dengan array statis ?
+Array statis mengharuskan kita untuk menyatakan atau mendeklarasikan langsung ukuran array
 ----------------------------------------------------------------------------------------------
 1) Perhatikan program di bawah ini, kemudian salin (ketik ulang, jangan copy-paste), compile, dan
 eksekusi program tersebut. Jika terdapat syntax error atau error karena kesalahan dalam hal
@@ -447,9 +495,30 @@ cout<<"\nRerata elemen array adalah : "<<avg;
 return 0;
 }
 
-Modul Praktikum Pemrograman Dasar
+#include <iostream>
+using namespace std;
+int main()
+{
+int arr[10];
+int i;
+int sum=0, avg=0;
+cout<<"Masukkan 10 Elemen Array bertipe integer : \n";
+for(i=0; i<10; i++)
+{
+cin>>arr[i];
+sum = sum + arr[i];
+}
+cout<<"\nElemen Array adalah : \n";
+for(i=0; i<10; i++)
+{
+cout<<arr[i]<<" ";
+}
+cout<<"\n\nHasil penjumlahan dari semua elemen array adalah : "<<sum;
+avg = sum/10;
+cout<<"\nRerata elemen array adalah : "<<avg;
+return 0;
+}
 
-12
 2) Perhatikan program di bawah ini, kemudian salin (ketik ulang, jangan copy-paste), compile, dan
 eksekusi program tersebut. Jika terdapat syntax error atau error karena kesalahan dalam hal
 penggunaan tipe data, operator, ataupun kesalahan logika, perbaiki hingga dapat dikompilasi dan
@@ -483,6 +552,34 @@ cout<<i+1<<"\t"<<emp[i].name<<"\t"<<emp[i].emp_no<<"\t\t"<<emp[i].salary<
 }
 }
 
+#include <iostream>
+using namespace std;
+const int size=3;
+struct employee {
+string name;
+int emp_no;
+float salary;
+} ;
+int main () {
+employee emp[size];
+cout<<"Masukkan Data Pegawai"<<endl;
+for(int i=0;i<size;i++) {
+cout<<" Pegawai Nomor "<<i+1<<endl;
+cout<<" Nama:"<<endl;
+cin>>emp[i].name;
+cout<<" Kode: "<<endl;
+cin>>emp[i].emp_no; //accessing members
+cout<<" Gaji:"<<endl;
+cin>>emp[i].salary;
+}
+cout<<"\n";
+cout<<"Data Pegawai\n";
+cout<<"No.\tNama\tKode\tGaji\n";
+for(int i=0;i<size;i++) {
+cout<<i+1<<"\t"<<emp[i].name<<"\t"<<emp[i].emp_no<<"\t\t"<<emp[i].salary<<"\n";
+}
+}
+
 3) Apakah keluaran dari program di bawah ini, jelaskan!
 #include <iostream>
 using namespace std;
@@ -496,9 +593,6 @@ for (index = 0; index < 10; index++)
 a[index] = index;
 p = a;
 
-Modul Praktikum Pemrograman Dasar
-
-13
 
 for (index = 0; index < 10; index++)
 cout << p[index] << " ";
@@ -510,6 +604,12 @@ cout << a[index] << " ";
 cout << endl;
 return 0;
 }
+
+0 1 2 3 4 5 6 7 8 9
+1 2 3 4 5 6 7 8 9 10
+
+output barus pertama berasal dari pointer yang diloop untuk mengeluarkan isi data  telah dinyatakan di loop for sebelumnya
+pada output baris ke2, ada angka 1-10 karena ada loop for yang menambahkan 1 pada setiap elemen pada array
 
 ------------------------------------------------------------------------------------
 1. Berikut adalah program untuk apa ? Jelaskan. Modifikasilah untuk masukan atau input array yang bisa
@@ -542,6 +642,39 @@ for(int i=0;i<5;i++)
 cout <<myarray[i]<<"\t";
 }
 }
+
+#include<iostream>
+using namespace std;
+int main ()
+{
+int myarray[5];
+cout << "Enter 5 elements : "; 
+for(int i=0;i<5;i++){
+    cin >> myarray[i];
+}
+cout<<"\nInput list is \n";
+for(int i=0;i<5;i++)
+{
+cout <<myarray[i]<<"\t";
+}
+for(int k=1; k<5; k++)
+{
+int temp = myarray[k];
+int j= k-1;
+while(j>=0 && temp <= myarray[j])
+{
+myarray[j+1] = myarray[j];
+j = j-1;
+}
+myarray[j+1] = temp;
+}
+cout<<"\nOutput list is \n";
+for(int i=0;i<5;i++)
+{
+cout <<myarray[i]<<"\t";
+}
+}
+
 
 2. Berikut adalah program untuk mengisi dan menampilkan array structure data student, juga
 menampilkan data umur yang tertua. Jika akan ditambahkan untuk menampilkan nama student yang
