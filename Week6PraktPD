@@ -724,6 +724,8 @@ cout << "\nThe oldest age's student is : " <<max;
 return 0;
 }
 
+udh bener
+
 3. Berikut adalah program penghitung jumlah dan rerata dari 3 buah masukan bilangan bertipe double.
 Program mengimplementasikan suatu program modular yang terdiri dari 2 fungsi user definition
 function, yaitu fungsi add dan avg. Modifikasilah program tersebut sehingga masukkannya menjadi
@@ -734,9 +736,7 @@ using namespace std;
 // declare functions
 double add(double num1, double num2, double num3);
 
-Modul Praktikum Pemrograman Dasar
 
-15
 
 double avg(double sum, int n);
 // main function
@@ -767,6 +767,7 @@ double avg(double sum, int n)
 {
 return sum / n;
 }
+
 
 4. Berikut adalah program penghitung jumlah dan rerata dari 3 buah masukan bilangan bertipe double.
 Program mengimplementasikan suatu program modular yang terdiri dari 2 user defined function,
@@ -812,10 +813,106 @@ double avg(double sum, int n)
 return sum / n;
 }
 
+#include<iostream>
+using namespace std;
+// declare functions
+double add(double arr[], int n);
+
+
+
+double avg(double sum, int n);
+// main function
+int main()
+{
+// declare variables
+double arr[3];
+double sum, average;
+// take input from end-user
+cout << "Enter three Numbers :: ";
+for (int i = 0; i < 3; i++) {
+    cin >> arr[i];
+}
+// calculate sum value
+sum = add(arr, 3);
+// calculate average value
+average = avg(sum, 3);
+// display result
+cout << "Sum = " << sum << endl;
+cout << "Average = " << average << endl;
+return 0;
+}
+// function to add three numbers
+double add(double arr[], int n)
+{
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
+// function to calculate average of n number
+double avg(double sum, int n)
+{
+return sum / n;
+}
+
 5. Buatlah program dengan menggunakan prinsip array dua dimensi, untuk menampilkan matriks
-diagonal dan matriks segitiga bawah yang isinya huruf “X” apa ?
+diagonal dan matriks segitiga bawah yang isinya huruf “X” saja 
 
+#include <iostream>
+using namespace std;
 
+const int N = 5;
+
+int main() {
+    char matriks[N][N];
+    
+    // Mengisi matriks diagonal dan segitiga bawah dengan huruf 'X'
+    for(int i=0; i<N; i++) {
+        for(int j=0; j<N; j++) {
+            if(i==j) {
+                matriks[i][j] = 'X';  // diagonal
+            } else if(i>j) {
+                matriks[i][j] = ' ';  // segitiga bawah
+            } else {
+                matriks[i][j] = ' ';  // elemen lainnya
+            }
+        }
+    }
+    
+    // Menampilkan matriks diagonal
+    cout << "Matriks diagonal: " << endl;
+    for(int i=0; i<N; i++) {
+        for(int j=0; j<N; j++) {
+            cout << matriks[i][j] << " ";
+        }
+        cout << endl;
+    }
+    
+    // Mengisi matriks diagonal dan segitiga bawah dengan huruf 'X'
+    for(int i=0; i<N; i++) {
+        for(int j=0; j<N; j++) {
+            if(i==j) {
+                matriks[i][j] = 'X';  // diagonal
+            } else if(i>j) {
+                matriks[i][j] = 'X';  // segitiga bawah
+            } else {
+                matriks[i][j] = ' ';  // elemen lainnya
+            }
+        }
+    }
+    
+    // Menampilkan matriks segitiga bawah
+    cout << "Matriks segitiga bawah: " << endl;
+    for(int i=0; i<N; i++) {
+        for(int j=0; j<=i; j++) {
+            cout << matriks[i][j] << " ";
+        }
+        cout << endl;
+    }
+    
+    return 0;
+}
 -----------------------------------------------------------------------------------------------
 1. Jelaskan maksud dan keluaran program di bawah. Bagaimana cara menyempurnakan program
 supaya ketika masukan pada penggalan program ini tidak ditemukan, maka tidak terjadi error ?
@@ -829,9 +926,7 @@ using namespace std;
 int main()
 {
 
-Modul Praktikum Pemrograman Dasar
 
-17
 
 int n,k,l,ans=-1;
 cout<<"Enter size of array"<<endl;
@@ -863,6 +958,54 @@ cout<<"The element "<<k<<" is not there in the array";
 return 0;
 }
 
+#include<iostream>
+using namespace std;
+
+// fungsi untuk meminta input array dari user
+void getInput(int arr[], int n) {
+    cout << "Enter elements of array" << endl;
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+}
+
+// fungsi untuk mencari elemen pada index tertentu
+void findElement(int arr[], int n) {
+    int l;
+    cout << "Accessing element at index. Enter the index: ";
+    cin >> l;
+    cout << "\nElement present at index " << l << " is " << arr[l] << endl;
+}
+
+// fungsi untuk mencari elemen tertentu dalam array
+void searchElement(int arr[], int n) {
+    int k, ans = -1;
+    cout << "Enter element to be searched: ";
+    cin >> k;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == k) {
+            ans = i;
+            break;
+        }
+    }
+    if (ans != -1)
+        cout << "The element " << k << " is present at index " << ans;
+    else
+        cout << "The element " << k << " is not there in the array";
+}
+
+int main() {
+    int n;
+    cout << "Enter size of array" << endl;
+    cin >> n;
+    int arr[n];
+    getInput(arr, n);
+    findElement(arr, n);
+    searchElement(arr, n);
+    return 0;
+}
+
+
 2. Modifikasi program di bawah menjadi program modular yang memiliki 2 3 user defined function.
 Fungsi yang pertama untum meng-inputkan array satu dimensi, sedangkan fungsi yang kedua untuk
 mengeluarkan output seperti pada program aslinya.
@@ -889,19 +1032,99 @@ myarray[j+1] = temp;
 }
 cout<<"\nOutput list is \n";
 
-Modul Praktikum Pemrograman Dasar
-
-18
-
 for(int i=0;i<5;i++)
 {
 cout <<myarray[i]<<"\t";
 }
 }
 
+#include<iostream>
+using namespace std;
+
+void inputArray(int arr[], int size) {
+    cout << "Enter elements of array:" << endl;
+    for(int i = 0; i < size; i++) {
+        cin >> arr[i];
+    }
+}
+
+void insertionSort(int arr[], int size) {
+    cout << "\nInput list is:" << endl;
+    for(int i = 0; i < size; i++) {
+        cout << arr[i] << "\t";
+    }
+    for(int k = 1; k < size; k++) {
+        int temp = arr[k];
+        int j = k - 1;
+        while(j >= 0 && temp <= arr[j]) {
+            arr[j+1] = arr[j];
+            j = j - 1;
+        }
+        arr[j+1] = temp;
+    }
+    cout << "\nOutput list is:" << endl;
+    for(int i = 0; i < size; i++) {
+        cout << arr[i] << "\t";
+    }
+}
+
+int main() {
+    int size = 5;
+    int arr[size] = {12, 4, 3, 1, 15};
+    inputArray(arr, size);
+    insertionSort(arr, size);
+    return 0;
+}
+
 3. Buatlah program untuk menampilkan elemen suatu matriks (array dua dimensi bertipe integer) dan
 juga untuk mencari dan menampilkan nilai terkecil dari matriks tersebut. Tampilkan juga nilai terkecil
 tersebut terletak pada indeks berapa ?
+
+#include <iostream>
+using namespace std;
+
+// fungsi untuk mencari nilai terkecil pada matriks
+void cariNilaiTerkecil(int matriks[][3], int baris, int kolom)
+{
+    int nilaiTerkecil = matriks[0][0];
+    int indeksBaris = 0, indeksKolom = 0;
+    for (int i = 0; i < baris; i++)
+    {
+        for (int j = 0; j < kolom; j++)
+        {
+            if (matriks[i][j] < nilaiTerkecil)
+            {
+                nilaiTerkecil = matriks[i][j];
+                indeksBaris = i;
+                indeksKolom = j;
+            }
+        }
+    }
+    cout << "Nilai terkecil pada matriks adalah " << nilaiTerkecil << endl;
+    cout << "Terletak pada indeks baris " << indeksBaris << " dan kolom " << indeksKolom << endl;
+}
+
+int main()
+{
+    int matriks[3][3] = {{1, 2, 3},
+                         {4, 5, 6},
+                         {7, 8, 9}};
+    int baris = 3, kolom = 3;
+    // menampilkan elemen matriks
+    cout << "Elemen matriks: " << endl;
+    for (int i = 0; i < baris; i++)
+    {
+        for (int j = 0; j < kolom; j++)
+        {
+            cout << matriks[i][j] << " ";
+        }
+        cout << endl;
+    }
+    cariNilaiTerkecil(matriks, baris, kolom);
+    return 0;
+}
+
+
 4. Apakah keluaran program di bawah ini ? Program ini menggunakan jenis tipe data apa ? Bagaimana
 cara menambah beberapa data di program ini ?
 
@@ -931,4 +1154,46 @@ cout << "Name: " << DynArray[i].Name <<
 delete[] DynArray;
 return 0;
 }
+
+
+Keluaran program di bawah ini adalah:
+
+makefile
+Copy code
+Displaying the Array Content
+Name: Agus   Age: 33
+Name: Sigit  Age: 26
+Name: Sulis  Age: 52
+Program ini menggunakan tipe data struct Employee dan dynamic memory allocation dengan operator new dan delete. Untuk menambahkan beberapa data, Anda dapat mengubah ukuran array dengan mengalokasikan memori dinamis baru dan menyalin data dari array yang lama ke array yang baru. Misalnya, untuk menambahkan dua karyawan lagi, Anda dapat melakukan hal berikut:
+
+cpp
+Copy code
+Employee* NewDynArray;
+NewDynArray = new (nothrow) Employee[5];
+for (int i = 0; i < 3; i++)
+{
+    NewDynArray[i] = DynArray[i];
+}
+NewDynArray[3].Name = "Budi";
+NewDynArray[3].Age = 45;
+NewDynArray[4].Name = "Cahya";
+NewDynArray[4].Age = 28;
+delete[] DynArray;
+DynArray = NewDynArray;
+Catatan: Pastikan Anda selalu men-delete memori yang sudah dialokasikan secara dinamis saat sudah tidak diperlukan lagi.
+
+
+
+
+
+User
+apa maksud (nothrow) pada program tersebut
+
+ChatGPT
+Pada program tersebut, (nothrow) digunakan sebagai argumen pada operator new yang berfungsi untuk mengalokasikan memori dinamis. Ketika memori tidak cukup, biasanya operator new akan melemparkan exception (pengecualian) yang harus dihandle oleh program. Namun, dengan menggunakan (nothrow), operator new akan mengembalikan nilai null jika alokasi memori gagal, bukan melemparkan exception. Hal ini memberikan kontrol yang lebih baik terhadap program, sehingga program dapat melakukan penanganan kesalahan sendiri ketika alokasi memori gagal, tanpa harus mengandalkan penanganan exception.
+
+
+
+
+
 ----------------------------------------------------------------------------------------
